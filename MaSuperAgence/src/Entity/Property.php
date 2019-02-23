@@ -4,10 +4,13 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
+ * @UniqueEntity("title")
  */
 class Property
 {
@@ -26,16 +29,28 @@ class Property
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     *
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
+     * @Assert\Range(
+     *      min = 10,
+     *      max = 400,
+     *      minMessage = "Vous devez entrer une surface de {{ limit }} m² minimum ",
+     *      maxMessage = "Vous pouvez entrer une surface de {{ limit }}m² maximum"
+     * )
      */
     private $surface;
 
@@ -61,6 +76,7 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
+     *
      */
     private $heat;
 
@@ -76,7 +92,11 @@ class Property
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\Regex("/^[0-9]{5}$/")
      */
+
+
     private $postal_code;
 
     /**
