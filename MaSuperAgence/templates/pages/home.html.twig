@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     <div class="jumbotron text-center">
         <h1>Agence Lorem Ipsum</h1>
-        <p>Dum apud Persas, ut supra narravimus, perfidia regis motus agitat insperatos, et in eois tractibus bella rediviva consurgunt, anno sexto decimo et eo diutius post </p>
+        <p>Dum haec in oriente aguntur, Arelate hiemem agens Constantius post theatralis ludos atque circenses ambitioso editos apparatu diem sextum idus Octobres, qui imperii eius annum tricensimum terminabat, insolentiae pondera gravius librans, siquid dubium deferebatur aut falsum, pro liquido accipiens et conperto, inter alia excarnificatum Gerontium Magnentianae comitem partis exulari maerore multavit. </p>
     </div>
 
     <div class="container">
@@ -13,7 +14,8 @@
                 <div class="col-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <img src="{{ property.image }}" alt="" style="width: 200px; height: 200px;">
+                            <h5 class="card-title mt-4">
                                 <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
                             </h5>
                             <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>

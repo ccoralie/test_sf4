@@ -27,6 +27,7 @@ class PropertyType extends AbstractType
             ->add('adress')
             ->add('postal_code')
             ->add('sold')
+            ->add('image')
 
         ;
     }

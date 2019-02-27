@@ -43,7 +43,7 @@ class Property
     private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      *
      * @Assert\Range(
      *      min = 10,
@@ -109,6 +109,11 @@ class Property
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $image;
+
 
     public function __construct()
     {
@@ -116,20 +121,18 @@ class Property
         $this-> sold = false;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getSurface()
     {
         return $this->surface;
     }
 
-    /**
-     * @param mixed $surface
-     */
-    public function setSurface($surface): void
+
+    public function setSurface(int $surface): self
     {
         $this->surface = $surface;
+
+        return $this;
     }
 
     public function getId(): ?int
@@ -292,6 +295,18 @@ class Property
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
