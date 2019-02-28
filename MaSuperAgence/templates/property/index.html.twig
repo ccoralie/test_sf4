@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-Acheter{% endblock %}
+{% block title %}Acheter{% endblock %}
 
 {% block body %}
 
@@ -15,7 +14,12 @@ Acheter{% endblock %}
                     {{ form_row(form.maxPrice) }}
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary">Rechercher</button>
+                    {{ form_row(form.options) }}
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <button class="btn btn-primary">Rechercher</button>
+                    </div>
                 </div>
             </div>
 
@@ -39,6 +43,7 @@ Acheter{% endblock %}
 
     </div>
 {% endblock %}
+
 
 
 
